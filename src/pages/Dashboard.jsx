@@ -167,7 +167,7 @@ const handleDeleteModalClose = () => {
   const handleInviteUserSubmit = async email => {
     setModalLoading(true);
     try {
-      await api.post('/invite', { email, role: 'User' });
+      await api.post('/invite', { email, role: 'member' });
       toast.success('Invitation sent successfully!', {
         icon: <Check className="h-4 w-4 text-green-500" />
       });
