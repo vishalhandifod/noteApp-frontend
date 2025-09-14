@@ -64,6 +64,7 @@ const [noteToDelete, setNoteToDelete] = useState(null);
       await api.post('/auth/logout');
       navigate( '/login');
     } catch (err) {
+      console.log(err);
       toast.error('Logout failed');
     }
   };
