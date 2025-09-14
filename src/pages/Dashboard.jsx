@@ -52,7 +52,7 @@ const [noteToDelete, setNoteToDelete] = useState(null);
   useEffect(() => {
     if (!loading) {
       if (!user) {
-        navigate('/login');
+        navigate('/');
       } else {
         fetchNotes();
       }
@@ -62,7 +62,7 @@ const [noteToDelete, setNoteToDelete] = useState(null);
   const handleLogout = async () => {
     try {
       await api.post('/auth/logout');
-      navigate( '/login');
+      navigate( '/');
     } catch (err) {
       console.log(err);
       toast.error('Logout failed');
@@ -78,7 +78,7 @@ const [noteToDelete, setNoteToDelete] = useState(null);
     } catch (err) {
       setError('Failed to fetch notes.');
       if (err.response?.status === 401) {
-        navigate('/login');
+        navigate('/');
       }
     } finally {
       setLoadingNotes(false);
